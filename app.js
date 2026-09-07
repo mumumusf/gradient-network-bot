@@ -88,8 +88,8 @@ async function downloadExtension(extensionId) {
       }
       fs.writeFileSync(EXTENSION_FILENAME, body)
       if (ALLOW_DEBUG) {
-        const md5 = crypto.createHash("md5").update(body).digest("hex")
-        console.log("-> 扩展 MD5:", md5)
+        const sha256 = crypto.createHash("sha256").update(body).digest("hex")
+        console.log("-> 扩展 SHA256:", sha256)
       }
       console.log("-> 扩展下载成功！")
       resolve()
